@@ -1,22 +1,24 @@
 {
   "name": "webkonsumer",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "deploy": "npx -y surge dist webkonsumer.surge.sh",
-    "predeploy": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsumer/webkonsumer.git"
+  },
+  "keywords": [],
+  "author": "David Konsumer <konsumer@jetboystudio.com> (https://konsumer.js.org/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/webkonsumer/issues"
+  },
+  "homepage": "https://github.com/konsumer/webkonsumer#readme",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.1.0",
-    "vite": "^3.1.0"
+    "fast-glob": "^3.2.11",
+    "localtunnel": "^2.0.2",
+    "webtorrent": "^1.8.29"
   }
 }

@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "deploy": "npx -y surge dist webkonsumer.surge.sh",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",

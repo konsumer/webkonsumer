@@ -1,4 +1,4 @@
-import WebTorrent from 'webtorrent'
+import WebTorrent from 'webtorrent-hybrid'
 import glob from 'fast-glob'
 import { lstat } from 'fs/promises'
 import { promisify } from 'util'

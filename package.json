@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/konsumer/webkonsumer#readme",
   "dependencies": {
+    "@koush/wrtc": "^0.5.3",
+    "create-torrent": "^5.0.6",
     "fast-glob": "^3.2.11",
-    "webtorrent-hybrid": "github:konsumer/webtorrent-hybrid"
+    "webtorrent": "^1.8.29"
   }
 }

@@ -1,4 +1,6 @@
-import WebTorrent from 'webtorrent-hybrid'
+import WebTorrent from 'webtorrent'
+import { announceList } from 'create-torrent'
+import wrtc from '@koush/wrtc'
 import glob from 'fast-glob'
 import { lstat } from 'fs/promises'
 import { promisify } from 'util'
@@ -7,6 +9,14 @@ if (process.argv.length < 3) {
   console.error('Usage: webkonsumer <DIR__OR_FILES_TO_SHARE>')
   process.exit(1)
 }
+
+// polyfill for node
+globalThis.WRTC = wrtc
+
+// add a better announceList
+globalThis.WEBTORRENT_ANNOUNCE = announceList
+  .map(arr => arr[0])
+  .filter(url => url.indexOf('wss://') === 0 || url.indexOf('ws://') === 0)
 
 let [,, ...infiles] = process.argv
 
@@ -31,9 +41,6 @@ for (const f of infiles) {
 }
 
 const client = new WebTorrent()
-
-for (const file of files) {
-  client.seed(file, (torrent) => {
-    console.log(`https://instant.io/#${torrent.infoHash} "${file}"`)
-  })
-}
+client.seed(files, (torrent) => {
+  console.log(`${files.length} files shared in https://instant.io/#${torrent.infoHash}`)
+})

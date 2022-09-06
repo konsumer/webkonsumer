@@ -34,6 +34,6 @@ const client = new WebTorrent()
 
 for (const file of files) {
   client.seed(file, (torrent) => {
-    console.log(`Seeding "${file}" at "${torrent.magnetURI}"`)
+    console.log(`https://instant.io/#${torrent.infoHash} "${file}"`)
   })
 }
